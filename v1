@@ -1,0 +1,54 @@
+def show_intro():
+    print("=" * 50)
+    print("WELCOME TO HUNT THE RABBIT")
+    print("=" * 50)
+    print("\nCommands:")
+    print("  'dig' - Search for treasure")
+    print("  'hunt' - Hunt for animals")
+    print("  'rest' - Recover health")
+    print("  'quit' - Exit game")
+    print("\n" + "=" * 50 + "\n")
+
+import random
+
+def hunt():
+    outcomes = [ "You found a rabbit! +50 XP",
+        "You hunted but found nothing...",
+        "A wolf appeared! You ran away.",
+        "You caught a rabbit! +100 XP",
+        "You tripped and fell. -10 HP"]
+    result = random.choice(outcomes)
+    print(result)
+
+def dig():
+    outcomes = ["You found gold! +200 coins",
+        "You dug and found nothing...",
+        "You hit a rock. Ouch! -5 HP",
+        "You found a treasure chest! +500 coins"]
+    result = random.choice(outcomes)
+    print(result)
+
+def rest():
+    outcomes = ["You decided to head back to your cabin and used a medic kit +50 hp",
+   "You found a pond and drank from it! It was clean! +50 hp",
+   "You found a pond and drank from it! It was dirty! -50 hp",
+   "you used an Epipen! +30 hp"]
+    result = random.choice(outcomes)
+    print(result)
+
+def main():
+    show_intro()
+    while True:
+        user_input = input("What do you do? > ").lower()
+        
+        if user_input == "hunt":
+            hunt()
+        elif user_input == "dig":
+            dig()
+        elif user_input == "rest":
+            rest()
+        elif user_input == "quit":
+            break
+
+if __name__ == "__main__":
+    main()
